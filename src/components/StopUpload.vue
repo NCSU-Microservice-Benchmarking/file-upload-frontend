@@ -12,46 +12,46 @@
       :UploadComplete="uploadComplete"
       @inputUploader="inputUploader"
     />
-    <el-tag type="warning">自动重传三次</el-tag>
+    <el-tag type="warning">Automatically Retry 3 Times"</el-tag>
     <br/>
     <br/>
-    <el-button type="primary" id="browse_button">选择多个文件</el-button>
+    <el-button type="primary" id="browse_button">"Select Multiple Files"</el-button>
     <br/>
     <el-table
       :data="tableData"
       style="width: 100%; margin: 10px 10px;">
       <el-table-column
-        label="文件名">
+        label="File Name">
         <template slot-scope="scope">
           <span>{{scope.row.name}}</span>
         </template>
       </el-table-column>
       <el-table-column
-        label="大小">
+        label="Size">
         <template slot-scope="scope">
           <span>{{scope.row.size}}</span>
         </template>
       </el-table-column>
       <el-table-column
-        label="状态">
+        label="Status">
         <template slot-scope="scope">
-          <span v-if="scope.row.status === -1">正在计算MD5</span>
-          <span v-if="scope.row.status === 1 && scope.row.percent === 0">MD5计算完成，准备上传</span>
-          <span v-if="scope.row.status === 4" style="color: brown">上传失败</span>
-          <span v-if="scope.row.status === 5" style="color: chartreuse">已上传</span>
+          <span v-if="scope.row.status === -1">"Calculating MD5"</span>
+          <span v-if="scope.row.status === 1 && scope.row.percent === 0">"MD5 Calculation Completed, Ready to Upload"</span>
+          <span v-if="scope.row.status === 4" style="color: brown">"Upload Failed"</span>
+          <span v-if="scope.row.status === 5" style="color: chartreuse">Uploaded</span>
           <el-progress v-if="scope.row.status === 2 || scope.row.status === 1 && scope.row.percent > 0" :text-inside="true" :stroke-width="20" :percentage="scope.row.percent"></el-progress>
         </template>
       </el-table-column>
       <el-table-column
-        label="操作">
+        label="Action">
         <template slot-scope="scope">
-          <el-button type="danger" @click="deleteFile(scope.row.id)">删除</el-button>
+          <el-button type="danger" @click="deleteFile(scope.row.id)">Delete</el-button>
         </template>
       </el-table-column>
     </el-table>
     <br/>
-    <el-button :disabled="uploading" type="danger" @click="uploadStart()">开始上传</el-button>
-    <el-button :disabled="!uploading" type="warring" @click="uploadStop()">暂停上传</el-button>
+    <el-button :disabled="uploading" type="danger" @click="uploadStart()">"Start Upload"</el-button>
+    <el-button :disabled="!uploading" type="warring" @click="uploadStop()">Pause Upload</el-button>
   </div>
 </template>
 

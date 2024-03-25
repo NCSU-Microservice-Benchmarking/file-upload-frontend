@@ -9,27 +9,27 @@
           <el-menu :default-active="defaultActive" style="height: 100%">
             <el-menu-item index="singleFileUpload" @click="redirectUrl('/singleFileUpload')">
               <i class="el-icon-menu"></i>
-              <span slot="title">单文件上传</span>
+              <span slot="title">Single File Upload</span>
             </el-menu-item>
             <el-menu-item index="multiFileUpload" @click="redirectUrl('/multiFileUpload')">
               <i class="el-icon-date"></i>
-              <span slot="title">多文件上传</span>
+              <span slot="title">Multi File Upload</span>
             </el-menu-item>
             <el-menu-item index="bigFileUpload" @click="redirectUrl('/bigFileUpload')">
               <i class="el-icon-tickets"></i>
-              <span slot="title">大文件上传</span>
+              <span slot="title">Big File Upload</span>
             </el-menu-item>
             <el-menu-item index="stopUpload" @click="redirectUrl('/stopUpload')">
               <i class="el-icon-document"></i>
-              <span slot="title">断点续传</span>
+              <span slot="title">Resumable Upload</span>
             </el-menu-item>
             <el-menu-item index="quickUpload" @click="redirectUrl('/quickUpload')">
               <i class="el-icon-upload"></i>
-              <span slot="title">文件秒传</span>
+              <span slot="title">Instant Upload(MD5)</span>
             </el-menu-item>
             <el-menu-item index="pictureUpload" @click="redirectUrl('/pictureUpload')">
               <i class="el-icon-picture"></i>
-              <span slot="title">图片上传</span>
+              <span slot="title">Picture Upload</span>
             </el-menu-item>
           </el-menu>
         </el-aside>

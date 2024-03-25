@@ -9,42 +9,42 @@
         :BeforeUpload="beforeUpload"
         @inputUploader="inputUploader"
     />
-    <el-button type="primary" id="browse_button">选择多个文件</el-button>
+    <el-button type="primary" id="browse_button">"Select Multiple Files"</el-button>
     <br/>
     <el-table
       :data="tableData"
       style="width: 100%; margin: 10px 10px;">
       <el-table-column
-        label="文件名">
+        label=""File Name"">
         <template slot-scope="scope">
           <span>{{scope.row.name}}</span>
         </template>
       </el-table-column>
       <el-table-column
-        label="大小">
+        label=""Size"">
         <template slot-scope="scope">
           <span>{{scope.row.size}}</span>
         </template>
       </el-table-column>
       <el-table-column
-        label="状态">
+        label="Status">
         <template slot-scope="scope">
-          <span v-if="scope.row.status === -1">正在计算MD5</span>
-          <span v-if="scope.row.status === 1">MD5计算完成，准备上传</span>
-          <span v-if="scope.row.status === 4" style="color: brown">上传失败</span>
-          <span v-if="scope.row.status === 5" style="color: chartreuse">已上传</span>
+          <span v-if="scope.row.status === -1">"Calculating MD5"</span>
+          <span v-if="scope.row.status === 1">"MD5 Calculation Completed, Preparing to Upload"</span>
+          <span v-if="scope.row.status === 4" style="color: brown">"Upload Failed"</span>
+          <span v-if="scope.row.status === 5" style="color: chartreuse">Uploaded</span>
           <el-progress v-if="scope.row.status === 2" :text-inside="true" :stroke-width="20" :percentage="scope.row.percent"></el-progress>
         </template>
       </el-table-column>
       <el-table-column
-        label="操作">
+        label=""Action"">
         <template slot-scope="scope">
-          <el-button type="danger" @click="deleteFile(scope.row.id)">删除</el-button>
+          <el-button type="danger" @click="deleteFile(scope.row.id)">Delete</el-button>
         </template>
       </el-table-column>
     </el-table>
     <br/>
-    <el-button type="danger" @click="up.start()">开始上传</el-button>
+    <el-button type="danger" @click="up.start()">Start Upload</el-button>
   </div>
 </template>
 

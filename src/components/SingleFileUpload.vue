@@ -14,16 +14,16 @@
         }"
         @inputUploader="inputUploader"
       />
-      <el-button id="browse_button" type="primary">选择文件</el-button>
+      <el-button id="browse_button" type="primary">Select a File</el-button>
       <span v-for="file in files">{{file.name}}</span>
-      <el-button type="danger" @click="uploadStart()">开始上传</el-button>
+      <el-button type="danger" @click="uploadStart()">Start Upload</el-button>
 
-      <el-dialog title="正在上传" :visible.sync="dialogTableVisible">
+      <el-dialog title="Uploading" :visible.sync="dialogTableVisible">
         <el-progress v-if="files.length>0" :text-inside="true" :stroke-width="20" :percentage="files[0].percent"></el-progress>
       </el-dialog>
       <br/>
       <br/>
-      <el-tag type="warning">只允许上传图片和zip文件, 最大只能上传400kb的文件</el-tag>
+      <el-tag type="warning">"Only image and zip files are allowed. The maximum file size is 400kb."</el-tag>
     </div>
 </template>
 
@@ -47,8 +47,8 @@
     watch: {
       status() {
         if (this.status === 5) {
-          this.$confirm('文件上传成功', '提示', {
-            confirmButtonText: '确定',
+          this.$confirm('File Upload Succeeded', '"Notification"', {
+            confirmButtonText: 'OK',
             type: 'warning'
           }).then(() => {
             this.dialogTableVisible = false;
